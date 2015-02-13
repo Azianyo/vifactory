@@ -1,10 +1,10 @@
-<%= link_to "Projekty", projects_path%>
-<%= link_to "O nas", o_nas_path%>
+
+<%=link_to "Nowy news", new_post_path%><br>
 <% @posts.each do |f| %>
 <%=f.title%><br>
 <%=f.content%><br>
-<%=link_to "Czytaj dalej...", post_path(f.id), method: "get"%>
-<%=link_to "Edit post", edit_post_path(f.id)%>
-<%=link_to "Delete post", post_path(f.id), method: "delete"%>
+<%=link_to "Czytaj dalej...", post_path(f.id)%> <br>
+<%=link_to "Edytuj news", edit_post_path(f.id)%>
+<%=link_to "Usuń news", post_path(f.id), method: "delete"%><br><br>
 <%end%>
-<%=link_to "New post", new_post_path%>
+
