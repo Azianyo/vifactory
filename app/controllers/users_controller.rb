@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-      	uploader = PhotoUploader.new
+      	#uploader = PhotoUploader.new
+     @partner = Partner.new
   end
 
   def show

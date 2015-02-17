@@ -1,4 +1,4 @@
-<%=link_to "Forum", "http://student.agh.edu.pl/~knvif/forum/"%>
+
 <%=link_to "Nowy news", new_post_path%><br>
 <% @posts.each do |f| %>
 <%=f.title%><br>
@@ -8,3 +8,18 @@
 <%=link_to "Usuń news", post_path(f.id), method: "delete"%><br><br>
 <%end%>
 
+<% @partners.each do |f| %>
+	<%= link_to(image_tag(f.photo),"#{f.link}")%> 
+	<%=form_for f, method: "patch", :html => {:multipart => true}  do |t|%>
+		<%= t.label :upload %><br>
+		<%= t.file_field :photo %><br>
+		<%=t.submit%>
+	<%end%>
+	<%=link_to "Usuń partnera", partner_path(f.id), method: "delete"%><br><br>
+<%end%>
+
+<%=form_for Partner.new, :html => {:multipart => true} do |f|%>
+	<%= f.label :upload %><br>
+	<%= f.file_field :photo %><br>
+	<%=f.submit%>
+<%end%>
