@@ -1,0 +1,12 @@
+<%= @user.name%><br>
+<%= @user.description%><br>
+ <%=image_tag(@user.photo)%><br>
+<%=form_for @user, :html => {:multipart => true} do |f|%>
+	<%= f.label :imię %><br>
+	<%= f.text_field :name, class: 'form-control' %><br>
+    <%= f.label :opis %><br>
+    <%= f.text_area :description, class: 'form-control' %><br>
+	<%= f.label :upload %><br>
+	<%= f.file_field :photo %><br>
+	<%=f.submit%>
+<%end%>
