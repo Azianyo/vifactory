@@ -7,11 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Projekty", projects_path%>
-<%= link_to "Sukcesy", success_path%>
-<%= link_to "Forum", "http://student.agh.edu.pl/~knvif/forum/"%>
-<%= link_to "O nas", about_path%>
-<%= link_to "Kontakt", contact_path%>
+<%= flash[:success] %>
+<%= flash[:warning] %>
+<%= link_to(image_tag("logo.png", style: "width:200px; height: 70px;"), root_path, class: "logo") %>
+<%= link_to "Projekty", projects_path %>
+<%= link_to "Sukcesy", success_path %>
+<%= link_to "Forum", "http://student.agh.edu.pl/~knvif/forum/" %>
+<%= link_to "O nas", about_path %>
+<%= link_to "Kontakt", contact_path %>
+<%= link_to "Zaloguj się", new_user_session_path %>
+<%= link_to "Zarejestruj się", new_user_registration_path %>
+<%= link_to "Wyloguj", destroy_user_session_path, method: "delete" %>
+
 <br><br>
 
 

@@ -1,6 +1,10 @@
 <%= @user.name%><br>
 <%= @user.description%><br>
+<% @user.errors.full_messages.each do |error| %>
+  <%= error %>
+<% end %>
  <%=image_tag(@user.photo)%><br>
+ <%= link_to("Zmiana hasła", edit_user_registration_path)%>
 <%=form_for @user, :html => {:multipart => true} do |f|%>
 	<%= f.label :imię %><br>
 	<%= f.text_field :name, class: 'form-control' %><br>

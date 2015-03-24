@@ -1,9 +1,4 @@
 
 <%=link_to "Nowy projekt", new_project_path%><br>
-<% @projects.each do |f| %>
-<%=f.title%><br>
-<%=f.content%><br>
-<%=link_to "Czytaj dalej...", project_path(f.id)%> <br>
-<%=link_to "Edytuj projekt", edit_project_path(f.id)%>
-<%=link_to "Usuń projekt", project_path(f.id), method: "delete"%><br><br>
-<%end%>
+<%= render @projects %>
+<%= will_paginate @projects %>

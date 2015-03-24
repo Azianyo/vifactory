@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    @projects = Project.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   def create
@@ -30,10 +30,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project = Project.create(project_params)
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
       flash[:success] = "Projekt został wyedytowany"
       redirect_to @project
     else
+      flash[:warning] = "Projekt nie został poprawnie wyedytowany"
       render :action => "edit"
     end
   end

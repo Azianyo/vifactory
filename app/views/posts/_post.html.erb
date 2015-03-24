@@ -1,0 +1,5 @@
+<%= post.title %><%= post.updated_at %><br>
+<%= post.content %><br>
+<%=link_to "Czytaj dalej...", post_path(post)%> <br>
+<%=link_to "Edytuj news", edit_post_path(post)%>
+<%=link_to "Usuń news", post_path(post), method: "delete"%><br><br>

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-      	#uploader = PhotoUploader.new
      @partner = Partner.new
   end
 
@@ -10,8 +9,16 @@ class UsersController < ApplicationController
   end
 
   def update
-  	@user = User.create(user_params)
-  	redirect_to @user
+  	@user = User.find(params[:id])
+    if @user.update(user_params)
+  		redirect_to about_path
+  		flash[:success] = "Użytkownik został poprawnie edytowany"
+
+  	else 
+  		flash[:warning] = "Użytkownik nie został poprawnie edytowany"
+      flash
+      render 'show'
+  	end
   end 
 
   def user_params

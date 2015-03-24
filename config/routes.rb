@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-
+ ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
   get "about" ,to: "users#index"
   get "success", to: "dashboard#success"
   get "contact", to: "dashboard#contact"
 
 
-  root "dashboard#index"
   resources :posts, only: [:edit,:destroy,:update,:new, :create, :show] do
   end
 
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :partners, only: [:update, :destroy, :create] do
   end
+
+  root "dashboard#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

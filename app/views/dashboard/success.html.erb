@@ -1,1 +1,8 @@
-success.html.erb
+<% @posts.each do |f|%>
+	<% if f.issuccess%>
+		<%=f.title%> <%=f.updated_at%><br>
+		<%=f.content%><br>
+		<%=link_to "Czytaj dalej...", post_path(f.id)%> <br>
+	<%end%>
+<%end%>
+<%= will_paginate @posts %>

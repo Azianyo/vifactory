@@ -1,0 +1,6 @@
+
+<%=project.title%><br>
+<%=project.content%><br>
+<%=link_to "Czytaj dalej...", project_path(project)%> <br>
+<%=link_to "Edytuj projekt", edit_project_path(project)%>
+<%=link_to "Usuń projekt", project_path(project), method: "delete"%><br><br>

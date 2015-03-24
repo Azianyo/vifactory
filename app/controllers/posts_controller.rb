@@ -4,9 +4,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
-    flash[:success] = "Post został utworzony"
-    redirect_to @post
+    if @post = Post.create(post_params)
+      flash[:success] = "Post został utworzony"
+      redirect_to @post
+    end
   end
 
   def update
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post został wyedytowany"
       redirect_to @post
     else
+      flash[:warning] = "Post nie został poprawnie wyedytowany"
       render :action => "edit"
     end
   end
@@ -33,6 +35,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :issucces)
+    params.require(:post).permit(:title, :content, :issuccess)
   end
 end
