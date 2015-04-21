@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	  mount_uploader :photo, PhotoUploader
+ 	  mount_uploader :photo, PhotoUploader
 
 	  validates_presence_of :name, message: ": Pole \"Imię i nazwisko\" nie może być puste"
 	  validates :name, format: { with: /[A-Z]\p{L}{1,} [A-Z]\p{L}{1,}/, message: ": W polu \"Imię i nazwisko\" należy wpisać imię

@@ -19,7 +19,7 @@ class PartnersController < ApplicationController
   end
 
   def partner_params
-    params.require(:partner).permit(:photo)
+    params.require(:partner).permit(:photo, :link)
   end
 
 end
